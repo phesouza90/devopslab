@@ -24,7 +24,7 @@ jobs:
         run:  pip install flask
 
       - name: Install Requirements
-        run:  pip install flask flask-wtf
+        run:  pip install flask-wtf
 
       - name: Unit Test
         run: python -m unittest -v test
