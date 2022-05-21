@@ -10,7 +10,7 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-        steps:
+    steps:
 
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -34,13 +34,13 @@ jobs:
 
       - name: Login to Heroku Container registry
         env: 
-            HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:login
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          run: heroku container:login
 
        - name: Docker Image & Push Heroku Registry
          env:
             HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-         run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web
+            run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web
 
   Deploy:
     needs: Build
